@@ -12,7 +12,7 @@ As duas versões estão em `atividade_01/gradio_app/` e `atividade_01/streamlit_
 
 ## Publicação
 
-Status: aguardando autenticação no Streamlit Community Cloud. O endereço público será registrado aqui após a publicação e a verificação do aplicativo.
+Status: publicação solicitada no Streamlit Community Cloud, usando a branch `main`, o arquivo `atividade_01/app.py` e Python 3.12. O endereço público será registrado aqui após a verificação do aplicativo.
 
 ## Evidências
 
@@ -41,6 +41,7 @@ Formulário executado em `http://127.0.0.1:8501`, com cadastro, tabela da sessã
 - Cadastro Streamlit acumula seis registros, exibe os últimos cinco e mantém os dados durante reexecuções.
 - Sessões Streamlit independentes não herdam cadastros de outros visitantes.
 - Cadastro realizado pela interface Gradio e pela interface Streamlit no navegador.
+- API local Gradio verificada com envio inválido rejeitado e quatro cadastros fictícios persistidos.
 - Download Streamlit executado e CSV baixado conferido.
 - Dependências verificadas com `python -m pip check`.
 
