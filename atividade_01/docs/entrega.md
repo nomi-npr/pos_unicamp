@@ -20,7 +20,11 @@ Publicado no Streamlit Community Cloud em 17/10/2026, usando a branch `main`, o 
 
 ### Gradio local
 
-Interface executada em `http://127.0.0.1:7860`, com cadastro fictício gravado em CSV e mensagem de confirmação:
+Interface executada em `http://127.0.0.1:7860`, com cadastro fictício gravado em CSV e mensagem de confirmação. Captura da janela completa, sem recorte, com endereço local, formulário e tabela visíveis (zoom de 67% para enquadrar toda a interface):
+
+![Gradio em tela inteira](evidencias/gradio-tela-inteira.png)
+
+Captura adicional da página:
 
 ![Gradio local](evidencias/gradio-local.jpg)
 
@@ -48,7 +52,7 @@ Interfaces verificadas no modo responsivo do navegador, em viewport de 390 × 84
 
 ### CSV de exemplo
 
-[Baixar pacientes.csv](../exemplos/pacientes.csv). Gerado pela rotina compartilhada de persistência com cinco registros fictícios, os cinco convênios e prioridades de 1 a 5. Inclui data/hora, nome, idade, convênio, prioridade e motivo.
+[Baixar pacientes.csv](../exemplos/pacientes.csv). Contém 12 registros fictícios, os cinco convênios e prioridades de 1 a 5. Inclui data/hora, nome, idade, convênio, prioridade e motivo. Os cinco registros originais foram preservados e os sete adicionais usam a mesma validação das interfaces.
 
 ## Verificação
 

@@ -44,7 +44,7 @@ gradio_app/app.py           Interface Gradio em coluna única
 streamlit_app/app.py        Interface Streamlit e exportação
 cadastro/dados.py           Validação, timestamp e persistência CSV
 requirements.txt           Gradio, Streamlit e pandas
-exemplos/pacientes.csv      Exemplo com cinco pacientes fictícios
+exemplos/pacientes.csv      Exemplo com 12 pacientes fictícios
 docs/evidencias/            Capturas das interfaces em execução
 docs/entrega.md             Links e conferência da entrega
 scripts/gerar_exemplo.py    Geração reproduzível do CSV
