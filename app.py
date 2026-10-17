@@ -1,5 +1,5 @@
-"""Ponto de entrada para o Streamlit Community Cloud."""
+"""Atalho para a atividade 01; cada aula mantém seu próprio app.py."""
 
-from streamlit_app.app import main
+from atividade_01.streamlit_app.app import main
 
 main()

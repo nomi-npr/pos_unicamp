@@ -1,11 +1,11 @@
-"""Execute na raiz: python -m gradio_app.app."""
+"""Execute na raiz: python -m atividade_01.gradio_app.app."""
 
 import os
 from pathlib import Path
 
 import gradio as gr
 
-from cadastro.dados import CONVENIOS, criar_registro, ler_registros, salvar_registro
+from atividade_01.cadastro.dados import CONVENIOS, criar_registro, ler_registros, salvar_registro
 
 ARQUIVO_CSV = Path(os.environ.get("GRADIO_CSV", Path(__file__).parent / "pacientes.csv"))
 
@@ -39,6 +39,7 @@ with gr.Blocks(title="Cadastro de Pacientes | Gradio") as demo:
         cadastrar_paciente, [nome, idade, convenio, prioridade, motivo],
         [saida, tabela], api_name="cadastrar_paciente",
     )
+    demo.load(lambda: ler_registros(ARQUIVO_CSV).tail(5), outputs=tabela)
 
 if __name__ == "__main__":
     demo.launch(theme=gr.themes.Soft(primary_hue="teal"), share=False)

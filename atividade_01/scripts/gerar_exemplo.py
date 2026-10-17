@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from cadastro.dados import criar_registro, salvar_registro
+from atividade_01.cadastro.dados import criar_registro, salvar_registro
 
 DESTINO = Path(__file__).resolve().parents[1] / "exemplos" / "pacientes.csv"
 EXEMPLOS = [

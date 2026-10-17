@@ -7,7 +7,7 @@ from uuid import uuid4
 import pandas as pd
 import streamlit as st
 
-from cadastro.dados import COLUNAS, CONVENIOS, criar_registro, exportar_csv, salvar_registro
+from atividade_01.cadastro.dados import COLUNAS, CONVENIOS, criar_registro, exportar_csv, salvar_registro
 
 
 def main():

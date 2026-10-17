@@ -6,4 +6,4 @@ __pycache__/
 .streamlit/secrets.toml
 data/
 **/pacientes.csv
-!exemplos/pacientes.csv
+!atividade_01/exemplos/pacientes.csv

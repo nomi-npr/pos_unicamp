@@ -4,7 +4,7 @@ import unittest
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from cadastro.dados import COLUNAS, criar_registro, exportar_csv, ler_registros, salvar_registro
+from atividade_01.cadastro.dados import COLUNAS, criar_registro, exportar_csv, ler_registros, salvar_registro
 
 
 class PersistenciaTest(unittest.TestCase):

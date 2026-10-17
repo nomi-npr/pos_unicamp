@@ -4,7 +4,7 @@ from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
 
-from cadastro.dados import ler_registros
+from atividade_01.cadastro.dados import ler_registros
 
 RAIZ = Path(__file__).resolve().parents[1]
 
