@@ -6,6 +6,8 @@ As duas versões coletam nome, idade, convênio, prioridade de 1 a 5 (5 = urgent
 
 **Demonstração acadêmica: utilize apenas dados fictícios.**
 
+[Abrir Streamlit publicado](https://nomi-unicamp-atividade-01.streamlit.app/) · [Repositório GitHub](https://github.com/nomi-npr/pos_unicamp) · [Evidências e entrega](docs/entrega.md)
+
 ## Executar
 
 Requer Python 3.12 em macOS ou Linux. Execute os comandos na raiz deste repositório:

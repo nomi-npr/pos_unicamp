@@ -6,6 +6,8 @@ Repositório de atividades de Naomi Pomella. Cada atividade fica em sua própria
 | --- | --- | --- |
 | [Atividade 01](atividade_01/README.md) | Cadastro de pacientes com Gradio e Streamlit | [Links e evidências](atividade_01/docs/entrega.md) |
 
+App público da atividade 01: [Cadastro de Pacientes](https://nomi-unicamp-atividade-01.streamlit.app/).
+
 Somente a atividade 01 foi implementada até o momento. As próximas atividades serão adicionadas em `atividade_02/`, `atividade_03/` e assim por diante.
 
 ## Executar a atividade 01

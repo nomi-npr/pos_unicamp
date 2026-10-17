@@ -12,7 +12,9 @@ As duas versões estão em `atividade_01/gradio_app/` e `atividade_01/streamlit_
 
 ## Publicação
 
-Status: publicação solicitada no Streamlit Community Cloud, usando a branch `main`, o arquivo `atividade_01/app.py` e Python 3.12. O endereço público será registrado aqui após a verificação do aplicativo.
+[Abrir app público](https://nomi-unicamp-atividade-01.streamlit.app/)
+
+Publicado no Streamlit Community Cloud em 17/10/2026, usando a branch `main`, o arquivo `atividade_01/app.py` e Python 3.12. Cadastro e download verificados no endereço público, sem login de visitante.
 
 ## Evidências
 
@@ -27,6 +29,22 @@ Interface executada em `http://127.0.0.1:7860`, com cadastro fictício gravado e
 Formulário executado em `http://127.0.0.1:8501`, com cadastro, tabela da sessão e exportação CSV:
 
 ![Streamlit local](evidencias/streamlit-local.jpg)
+
+### Streamlit publicado
+
+Cadastro fictício realizado no endereço público e CSV exportado e conferido:
+
+![Formulário Streamlit publicado](evidencias/streamlit-formulario-publico.jpg)
+
+![Streamlit publicado](evidencias/streamlit-publico.jpg)
+
+### Layout para celular
+
+Interfaces verificadas no modo responsivo do navegador, em viewport de 390 × 844 pixels. O formulário público também foi preenchido e enviado nesse tamanho.
+
+![Gradio em viewport móvel](evidencias/gradio-mobile.png)
+
+![Streamlit público em viewport móvel](evidencias/streamlit-mobile.png)
 
 ### CSV de exemplo
 
@@ -43,9 +61,11 @@ Formulário executado em `http://127.0.0.1:8501`, com cadastro, tabela da sessã
 - Cadastro realizado pela interface Gradio e pela interface Streamlit no navegador.
 - API local Gradio verificada com envio inválido rejeitado e quatro cadastros fictícios persistidos.
 - Download Streamlit executado e CSV baixado conferido.
+- Cadastro e download no endereço público executados e CSV conferido.
+- Formulários conferidos em viewport móvel de 390 × 844, com cadastro público realizado.
 - Dependências verificadas com `python -m pip check`.
 
-O teste em celular físico e o teste do endereço público ainda dependem da publicação. Os formulários usam disposição em coluna única.
+O teste de layout móvel foi feito por simulação de viewport no navegador. A conferência em celular físico permanece para a autora, acessando o mesmo link público. Os formulários usam disposição em coluna única e as tabelas permitem rolagem horizontal.
 
 ## Comparação
 
