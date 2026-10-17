@@ -1,0 +1,6 @@
+timestamp,nome,idade,convenio,prioridade,motivo
+2026-10-17 20:30:45,Ana Exemplo,29,Particular,1,Consulta de rotina (dado fictício)
+2026-10-17 20:30:45,Bruno Exemplo,42,Unimed,2,Retorno (dado fictício)
+2026-10-17 20:30:45,Carla Exemplo,65,Bradesco Saúde,3,Avaliação (dado fictício)
+2026-10-17 20:30:45,Diego Exemplo,18,SulAmérica,4,Observação (dado fictício)
+2026-10-17 20:30:45,Eva Exemplo,35,Outro,5,Urgência simulada (dado fictício)
