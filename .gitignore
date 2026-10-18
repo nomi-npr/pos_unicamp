@@ -3,7 +3,10 @@ __pycache__/
 *.py[cod]
 .DS_Store
 .env
+**/.env
 .streamlit/secrets.toml
+**/.streamlit/secrets.toml
+node_modules/
 data/
 **/pacientes.csv
 !atividade_01/exemplos/pacientes.csv
