@@ -117,7 +117,7 @@ def editar_excluir(servico, ordens, clientes):
 def painel(servico):
     with st.sidebar:
         st.header("Consulta")
-        st.caption(st.session_state.get("techfix_email", "Equipe TechFix"))
+        st.caption("Sessão autenticada · Equipe TechFix")
         nome = st.text_input("Buscar por nome", placeholder="Parte do nome")
         email = st.text_input("Buscar por e-mail", placeholder="Parte do e-mail")
         status = st.multiselect("Status", STATUS, default=STATUS)
@@ -141,7 +141,10 @@ def painel(servico):
         return
     tabela = tabela_ordens(ordens)
     resultado = filtrar(tabela, nome, email, status)
-    consultar, cadastrar, editar, indicadores = st.tabs(["Consultar", "Cadastrar", "Editar / Excluir", "Indicadores"])
+    consultar, cadastrar, editar, indicadores = st.tabs(
+        ["Consultar", "Cadastrar", "Editar / Excluir", "Indicadores"],
+        key="techfix_aba", on_change="rerun",
+    )
     with consultar:
         st.subheader("Ordens de serviço")
         st.caption(f"{len(resultado)} de {len(tabela)} OS · datas no horário de São Paulo")

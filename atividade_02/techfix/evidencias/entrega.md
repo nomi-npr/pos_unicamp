@@ -6,41 +6,61 @@ Autora: Naomi Pomella.
 
 ## Implementação
 
-- Duas tabelas relacionadas, PK, FK com RESTRICT, NOT NULL, e-mail único, CHECK para os cinco status, e-mail e celular.
-- Índices de cliente/status/data e atualização automática da data de alteração.
-- Cadastro atômico via RPC, reaproveitando cliente pelo e-mail.
-- Gradio com seis campos, validação, confirmação com número de OS, Limpar, layout responsivo e `share=True` por padrão.
-- Painel Streamlit com login da equipe, consulta com dados do cliente, filtros, cadastro, edição, confirmação de exclusão, métricas e gráfico.
-- Exportação CSV dos dados filtrados (desafio opcional).
-- Credenciais em `.env`/secrets ignorados pelo Git; `.env.example` sem valores reais.
-- Seed com 12 clientes e 15 OS fictícias.
+- Tabelas clientes e ordens_servico relacionadas, com PK, FK RESTRICT, NOT NULL, e-mail único e validações de status, e-mail e celular.
+- Índices e atualização automática da data de alteração.
+- Cadastro atômico por RPC, reaproveitando o cliente pelo e-mail sem sobrescrever seus dados.
+- Gradio com seis campos, validação, confirmação com número da OS, Limpar e layout responsivo.
+- Streamlit com login da equipe, consulta, filtros por nome/e-mail/status, cadastro, edição, exclusão com confirmação, métricas e gráfico.
+- Exportação dos resultados filtrados em CSV (desafio opcional).
+- Chave pública nas interfaces; credenciais locais fora do Git. A chave administrativa não é aceita pelas interfaces.
 
-## Estado da verificação
+## Verificação em 18/10/2026
 
-Verificado em 18/10/2026:
+- **13 testes Python aprovados**, incluindo configuração segura, transporte Supabase, validações, paginação, filtros, CSV e operações das interfaces.
+- **8 grupos SQL aprovados em PostgreSQL/PGlite local**: esquema, RLS, permissões, reuso, atomicidade, restrições, CRUD e seed idempotente.
+- **Integração com o Supabase remoto aprovada**: cadastro público, reuso do cliente, alteração de status, trigger de atualização, edição de contato, FK RESTRICT e exclusão de registros descartáveis criados exclusivamente pelo teste.
+- RLS impede consultas de visitantes nas duas tabelas; novos cadastros públicos de contas Auth e login anônimo estão desativados. A conta da equipe foi criada pela autora.
+- Gradio público cadastrou a **OS 18** para Marina Exemplo. O painel autenticado alterou seu status para **Em análise**, editou endereço/celular e cadastrou a **OS 19**, reaproveitando a cliente.
+- Filtro por Marina retornou sua OS; o CSV baixado pelo botão foi lido e conferido (1 linha, 11 colunas, antes do segundo atendimento). Consulte [consulta-marina.csv](consulta-marina.csv).
+- Layout conferido em emulação com viewport 390 × 844, sem rolagem horizontal. O link público está disponível para teste também em um celular físico.
+- O banco terminou com **13 clientes e 17 OS fictícias**: 5 Aberto, 4 Em análise, 3 Aguardando peça, 3 Concluído e 2 Entregue. O seed isolado contém 12 clientes e 15 OS; as interfaces adicionaram os dois atendimentos demonstrados.
+- Dependências consistentes e os seis testes da atividade 01 continuam aprovados na verificação de compatibilidade realizada durante esta implementação.
 
-- 11 testes Python aprovados: transporte da biblioteca Supabase, validação, consultas paginadas, filtros, CSV, cadastro, edição, confirmação de exclusão e login do painel.
-- 8 grupos SQL aprovados em PostgreSQL/PGlite local: criação do esquema, RLS/grants, RPC pública restrita, reuso do cliente, atomicidade, restrições, CRUD e seed sem duplicação.
-- Formulário Gradio aberto no navegador local; envio inválido rejeitado e botão Limpar conferido nos seis campos e no resultado.
-- Dependências consistentes (`pip check`) e os seis testes da atividade 01 continuam passando.
+## Acessar
 
-O projeto Supabase remoto ainda não foi configurado neste ambiente: o arquivo `.env` está sem URL/chave e o navegador solicita login.
+- [Gradio — link público temporário](https://537b9615f8c8c1d969.gradio.live/)
+- [Streamlit — painel local](http://127.0.0.1:8502/)
 
-[Formulário Gradio em link temporário](https://7a3a7a92dd591d16c9.gradio.live/), gerado em 18/10/2026. O formulário foi conferido no endereço público; a gravação permanece dependente da configuração do Supabase. O link pode expirar e depende de o processo local continuar rodando.
+O link Gradio foi gerado em 18/10/2026 e depende do processo local em execução. Ao reiniciar o Gradio, copie o novo endereço exibido no terminal. O painel usa a conta Auth da equipe; nenhuma senha acompanha a entrega.
 
-As capturas de cadastro confirmado, tabelas preenchidas no Supabase e CRUD integrado só serão acrescentadas após testar o projeto remoto. Capturas de testes simulados não serão apresentadas como evidências de integração real.
+## Evidências das interfaces e do banco real
 
-### Formulário local
+### Cadastro confirmado no Gradio — janela inteira
 
-Captura do formulário real em execução na porta 7861. Esta imagem demonstra a interface, sem representar um cadastro confirmado no banco remoto:
+![Gradio público com OS 18 confirmada e barra de endereço](gradio-tela-inteira.png)
 
-![Formulário Gradio local](gradio-formulario-local.jpg)
+### Consulta filtrada e exportação CSV
 
-## Pendências externas
+![Painel autenticado com filtro por Marina](streamlit-consulta-filtrada.png)
 
-1. Entrar no Supabase e criar/selecionar um projeto dedicado.
-2. Executar `sql/schema.sql` e `sql/seed.sql` no projeto.
-3. Configurar a URL/chave pública no `.env` e uma conta Auth da equipe.
-4. Testar as interfaces contra o Supabase, gerar o link temporário e registrar capturas.
+### Edição de cliente e status
 
-Consulte o [README](../README.md) para os passos de configuração e execução.
+A confirmação de atualização do cliente aparece junto à OS 18 já em análise. Os botões de exclusão permanecem desabilitados até a confirmação explícita.
+
+![Edição confirmada pelo painel](streamlit-edicao-confirmada.png)
+
+### Cadastro manual no painel
+
+![OS 19 cadastrada para a mesma cliente](streamlit-cadastro-confirmado.png)
+
+### Indicadores do banco remoto
+
+![Total de 17 OS e distribuição nos cinco status](streamlit-indicadores.png)
+
+### Tabelas preenchidas no Supabase
+
+![Tabela clientes no Supabase](supabase-clientes.png)
+
+![Tabela ordens_servico no Supabase](supabase-ordens-servico.png)
+
+Consulte o [README](../README.md) para instalação, configuração, execução e testes.

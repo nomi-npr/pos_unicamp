@@ -2,6 +2,8 @@
 
 Autora: Naomi Pomella. Sistema acadêmico para uma loja de informática, com duas interfaces que compartilham o mesmo banco Supabase. Use apenas dados fictícios.
 
+Integração verificada em 18/10/2026 com 13 clientes e 17 OS no Supabase. Consulte os [testes e prints da entrega](evidencias/entrega.md). O [Gradio público temporário](https://537b9615f8c8c1d969.gradio.live/) depende do processo local em execução; o [painel Streamlit local](http://127.0.0.1:8502/) exige a conta Auth da equipe.
+
 ## O que está implementado
 
 - Cadastro Gradio em `gr.Blocks`, com nome, endereço, e-mail, celular/WhatsApp, modelo do computador e problema apresentado; botões Cadastrar e Limpar.
@@ -59,10 +61,10 @@ cp atividade_02/techfix/.env.example atividade_02/techfix/.env
 
 ```dotenv
 SUPABASE_URL=https://SEU-PROJETO.supabase.co
-SUPABASE_KEY=SUA-CHAVE-PUBLICA-ANON-OU-PUBLISHABLE
+SUPABASE_PUBLIC_KEY=SUA-CHAVE-PUBLICA-ANON-OU-PUBLISHABLE
 ```
 
-O `.env` é carregado com python-dotenv, sem substituir variáveis já definidas no ambiente. O Streamlit também aceita as mesmas duas entradas em `.streamlit/secrets.toml`. Todos os `.env` e `secrets.toml` estão no `.gitignore`. Nunca faça commit desses arquivos.
+O `.env` é carregado com python-dotenv, sem substituir variáveis já definidas no ambiente. O Streamlit também aceita as mesmas duas entradas em `.streamlit/secrets.toml`. As interfaces priorizam `SUPABASE_PUBLIC_KEY`; por compatibilidade, aceitam uma chave pública em `SUPABASE_KEY`. Chaves secretas/service_role são recusadas nas interfaces. Se você mantiver uma chave administrativa em `SUPABASE_KEY` para manutenção local, preencha também `SUPABASE_PUBLIC_KEY`. Todos os `.env` e `secrets.toml` estão no `.gitignore`. Nunca faça commit desses arquivos.
 
 ### Acesso ao banco
 
