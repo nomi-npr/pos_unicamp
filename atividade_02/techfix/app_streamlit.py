@@ -1,16 +1,16 @@
-"""Na raiz: streamlit run atividade_02/techfix/app_streamlit.py --server.port 8502."""
+"""Dentro de techfix/: streamlit run app_streamlit.py --server.port 8502."""
 
 import sys
 from pathlib import Path
 
-RAIZ = str(Path(__file__).resolve().parents[2])
+RAIZ = str(Path(__file__).resolve().parents[1])
 if RAIZ not in sys.path:
     sys.path.insert(0, RAIZ)
 
 import streamlit as st
 
-from atividade_02.techfix.config import Configuracao, ErroConfiguracao
-from atividade_02.techfix.servicos import STATUS, ErroTechfix, Techfix, exportar_csv, filtrar, tabela_ordens
+from techfix.config import Configuracao, ErroConfiguracao
+from techfix.servicos import STATUS, ErroTechfix, Techfix, exportar_csv, filtrar, tabela_ordens
 
 
 def executar_acao(acao, mensagem):

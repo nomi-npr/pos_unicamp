@@ -1,17 +1,17 @@
-"""Na raiz: python -m atividade_02.techfix.app_gradio."""
+"""Dentro de techfix/: python app_gradio.py."""
 
 import os
 import sys
 from pathlib import Path
 
-RAIZ = str(Path(__file__).resolve().parents[2])
+RAIZ = str(Path(__file__).resolve().parents[1])
 if RAIZ not in sys.path:
     sys.path.insert(0, RAIZ)
 
 import gradio as gr
 
-from atividade_02.techfix.config import Configuracao, ErroConfiguracao
-from atividade_02.techfix.servicos import ErroTechfix, Techfix, validar_atendimento
+from techfix.config import Configuracao, ErroConfiguracao
+from techfix.servicos import ErroTechfix, Techfix, validar_atendimento
 
 
 def cadastrar(nome, endereco, email, celular, modelo, problema):

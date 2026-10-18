@@ -6,8 +6,10 @@ from unittest.mock import Mock, patch
 
 from streamlit.testing.v1 import AppTest
 
-from atividade_02.techfix.app_gradio import cadastrar, limpar
-from atividade_02.techfix.servicos import ErroTechfix
+import _bootstrap  # Importa o pacote techfix também fora do repositório.
+
+from techfix.app_gradio import cadastrar, limpar
+from techfix.servicos import ErroTechfix
 from test_servicos import CLIENTE, ordem
 
 APP = Path(__file__).resolve().parents[1] / "app_streamlit.py"
@@ -20,7 +22,7 @@ def item(elementos, label):
 class InterfacesTest(unittest.TestCase):
     def setUp(self):
         self.config = Mock()
-        self.config_patch = patch("atividade_02.techfix.app_streamlit.Configuracao.carregar", return_value=self.config)
+        self.config_patch = patch("techfix.app_streamlit.Configuracao.carregar", return_value=self.config)
         self.config_patch.start()
         self.addCleanup(self.config_patch.stop)
         self.ordens = [ordem(1), ordem(2, "Concluído", {**CLIENTE, "nome":"Bruno Exemplo", "email":"bruno@example.invalid"})]
@@ -100,7 +102,7 @@ class InterfacesTest(unittest.TestCase):
         self.assertNotIn("detalhe interno",app.error[0].value)
 
     def test_gradio_limpa_campos_e_informa_numero_da_os(self):
-        with patch("atividade_02.techfix.app_gradio.Configuracao.carregar") as config, patch("atividade_02.techfix.app_gradio.Techfix") as classe:
+        with patch("techfix.app_gradio.Configuracao.carregar") as config, patch("techfix.app_gradio.Techfix") as classe:
             classe.return_value.cadastrar.return_value=12
             msg=cadastrar("Ana Exemplo","Rua Fictícia","ana@example.invalid","11900000001","Notebook","Não liga")
             self.assertIn("nº 12",msg)

@@ -8,7 +8,9 @@ from unittest.mock import Mock
 import httpx
 from supabase import ClientOptions, create_client
 
-from atividade_02.techfix.servicos import ErroTechfix, Techfix, exportar_csv, filtrar, tabela_ordens, validar_atendimento
+import _bootstrap  # Importa o pacote techfix também fora do repositório.
+
+from techfix.servicos import ErroTechfix, Techfix, exportar_csv, filtrar, tabela_ordens, validar_atendimento
 
 CLIENTE = {"id": 1, "nome": "Ana Exemplo", "endereco": "Rua Fictícia, 100", "email": "ana@example.invalid", "celular_whatsapp": "11900000001"}
 

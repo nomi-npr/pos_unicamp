@@ -18,32 +18,31 @@ Integração verificada em 18/10/2026 com 13 clientes e 17 OS no Supabase. Consu
 ## Estrutura
 
 ```text
-atividade_02/
-  techfix/
-    sql/schema.sql          Tabelas, restrições, índices, trigger, RLS e RPC
-    sql/seed.sql            12 clientes fictícios e 15 ordens de serviço
-    app_gradio.py           Cadastro de atendimento
-    app_streamlit.py        Painel administrativo
-    config.py               .env, variáveis de ambiente e secrets
-    servicos.py             Validação, acesso ao Supabase, filtros e exportação
-    requirements.txt        Dependências Python
-    .env.example            Variáveis sem valores reais
-    README.md               Instalação, banco e execução
-    evidencias/             Estado da entrega e capturas verificadas
-    tests/                  Testes Python, Streamlit e PostgreSQL/PGlite
+techfix/
+  sql/schema.sql      Tabelas, restrições, índices, trigger, RLS e RPC
+  sql/seed.sql        12 clientes fictícios e 15 ordens de serviço
+  app_gradio.py       Cadastro de atendimento
+  app_streamlit.py    Painel administrativo
+  config.py           .env, variáveis de ambiente e secrets
+  servicos.py         Validação, acesso ao Supabase, filtros e exportação
+  requirements.txt    Dependências Python
+  .env.example        Variáveis sem valores reais
+  README.md           Instalação, banco e execução
+  evidencias/         Estado da entrega e capturas verificadas
+  tests/              Testes Python, Streamlit e PostgreSQL/PGlite
 ```
 
 ## Instalar
 
-Python 3.12. Execute os comandos a partir da raiz `pos_unicamp/`:
+Python 3.12. Extraia o ZIP e abra o terminal dentro da pasta `techfix/`. No repositório GitHub, essa pasta fica em `atividade_02/techfix/`. Execute os comandos abaixo dentro dela:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r atividade_02/techfix/requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-As dependências desta atividade ficam em sua própria pasta. O app e os atalhos da raiz continuam apontando para a atividade 01.
+A pasta `techfix/` funciona de forma independente: não precisa da atividade 01 nem dos arquivos da raiz do repositório.
 
 ## Configurar o Supabase
 
@@ -56,7 +55,7 @@ As dependências desta atividade ficam em sua própria pasta. O app e os atalhos
 7. Copie o exemplo e preencha os valores localmente. Não sobrescreva um `.env` que já tenha preenchido:
 
 ```bash
-cp atividade_02/techfix/.env.example atividade_02/techfix/.env
+cp .env.example .env
 ```
 
 ```dotenv
@@ -77,7 +76,7 @@ O cadastro público é destinado aos testes da atividade. Compartilhe o link tem
 ## Executar o Gradio
 
 ```bash
-python -m atividade_02.techfix.app_gradio
+python app_gradio.py
 ```
 
 Abra <http://127.0.0.1:7861>. Por padrão o lançamento usa `share=True`, exibindo também um link temporário `gradio.live` no terminal para abrir pelo celular. Esse endereço só funciona enquanto o processo estiver em execução. O endereço muda ao reiniciar e o túnel pode expirar.
@@ -85,7 +84,7 @@ Abra <http://127.0.0.1:7861>. Por padrão o lançamento usa `share=True`, exibin
 Para conferir apenas localmente:
 
 ```bash
-TECHFIX_SHARE=false python -m atividade_02.techfix.app_gradio
+TECHFIX_SHARE=false python app_gradio.py
 ```
 
 O botão **Limpar** esvazia os seis campos e o resultado. Cada clique válido em **Cadastrar** cria outra OS, inclusive para um cliente existente; só clique novamente se quiser abrir um novo atendimento.
@@ -93,7 +92,7 @@ O botão **Limpar** esvazia os seis campos e o resultado. Cada clique válido em
 ## Executar o painel Streamlit
 
 ```bash
-python -m streamlit run atividade_02/techfix/app_streamlit.py --server.port 8502
+python -m streamlit run app_streamlit.py --server.port 8502
 ```
 
 Abra <http://localhost:8502> e entre com a conta da equipe criada no Supabase Auth.
@@ -109,14 +108,14 @@ O CSV usa UTF-8 com BOM para preservar acentos em planilhas. Textos que começam
 Testes Python, com transporte HTTP simulado para a biblioteca oficial e `AppTest` para o painel:
 
 ```bash
-python -m unittest discover -s atividade_02/techfix/tests -v
+python -m unittest discover -s tests -v
 ```
 
 Teste do SQL em PostgreSQL embarcado, sem Docker (Node.js 20 ou superior):
 
 ```bash
-npm install --prefix atividade_02/techfix/tests
-npm test --prefix atividade_02/techfix/tests
+npm install --prefix tests
+npm test --prefix tests
 ```
 
 O teste SQL usa PGlite para executar o mesmo `schema.sql`, incluindo PL/pgSQL, restrições, trigger, grants e políticas RLS. Verifica reuso de cliente, atomicidade, criação das OS, acesso anônimo restrito, CRUD da equipe, exclusão protegida e seed sem duplicação. O ambiente é local e descartável; esses testes não substituem a verificação do projeto Supabase remoto e de seu login Auth.
