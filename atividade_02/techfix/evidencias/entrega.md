@@ -26,6 +26,8 @@ Verificado em 18/10/2026:
 
 O projeto Supabase remoto ainda não foi configurado neste ambiente: o arquivo `.env` está sem URL/chave e o navegador solicita login.
 
+[Formulário Gradio em link temporário](https://7a3a7a92dd591d16c9.gradio.live/), gerado em 18/10/2026. O formulário foi conferido no endereço público; a gravação permanece dependente da configuração do Supabase. O link pode expirar e depende de o processo local continuar rodando.
+
 As capturas de cadastro confirmado, tabelas preenchidas no Supabase e CRUD integrado só serão acrescentadas após testar o projeto remoto. Capturas de testes simulados não serão apresentadas como evidências de integração real.
 
 ### Formulário local
